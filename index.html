@@ -16,6 +16,7 @@
       --off-white:   #F7F6F4;
       --charcoal:    #161616;
       --navy:        #1C3B5A;
+      --green:       #2A4A35;
       --gray:        #6A6A6A;
       --light-gray:  #E0DFDD;
       --serif:       'Cormorant Garamond', Georgia, serif;
@@ -67,7 +68,7 @@
 
     .nav-cta {
       font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--white); background: var(--navy);
+      color: var(--white); background: var(--green);
       padding: 10px 26px; text-decoration: none; font-weight: 500;
       transition: background 0.25s;
     }
@@ -141,7 +142,7 @@
 
     .btn-primary {
       font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--white); background: var(--navy);
+      color: var(--white); background: var(--green);
       padding: 15px 32px; text-decoration: none; font-weight: 500;
       transition: background 0.25s;
     }
@@ -160,7 +161,7 @@
     .section-bg { background: var(--off-white); }
 
     .section-label {
-      font-size: 10.5px; letter-spacing: 0.2em; text-transform: uppercase;
+      font-size: 17.5px; letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--navy); margin-bottom: 14px;
       display: flex; align-items: center; gap: 12px;
     }
@@ -188,7 +189,7 @@
       cursor: default;
     }
     .pillar-card:last-child { border-right: none; }
-    .pillar-card:hover { background: var(--off-white); }
+    .pillar-card:hover { background: var(--light-gray); }
 
     .pillar-num {
       font-family: var(--serif);
@@ -200,25 +201,22 @@
 
     .pillar-heading {
       font-family: var(--serif);
-      font-size: 21px; font-weight: 500; font-style: italic;
+      font-size: 30px; font-weight: 500; font-style: italic;
       color: var(--navy); margin-bottom: 20px; line-height: 1.2;
     }
     .pillar-text {
-      font-size: 15px; color: var(--gray); line-height: 1.85;
+      font-size: 20px; color: var(--gray); line-height: 1.85;
       transition: font-size 0.4s ease, color 0.4s ease;
-    }
-    .pillar-card:hover .pillar-text {
-      font-size: 16.5px; color: #444444;
     }
 
     /* ─── QUOTE ──────────────────────────────────────────────── */
     .quote-band {
-      background: #2A4A35; padding: 96px 64px;
+      background: var(--green); padding: 96px 64px;
       text-align: center;
     }
     .quote-mark {
       font-family: var(--serif); font-size: 72px; line-height: 0.6;
-      color: var(--navy); display: block; margin-bottom: 32px;
+      color: var(--white); display: block; margin-bottom: 32px;
     }
     .quote-text {
       font-family: var(--serif); font-style: italic; font-weight: 300;
@@ -231,67 +229,104 @@
       color: rgba(255,255,255,0.35);
     }
 
-    /* ─── EMPREENDIMENTOS ────────────────────────────────────── */
-    .projects-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+    /* ─── EMPREENDIMENTOS CAROUSEL ──────────────────────────── */
+    .carousel-outer { position: relative; }
+    .carousel-viewport { overflow: hidden; }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
     }
-    .project-card { cursor: default; }
-    .project-img-wrap {
-      overflow: hidden; position: relative;
+    .carousel-slide {
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: 58% 42%;
+      align-items: stretch;
     }
-    .project-img-wrap img {
-      width: 100%; height: 260px; object-fit: cover; display: block;
-      filter: grayscale(30%); transition: filter 0.5s, transform 0.5s;
+    .c-img { overflow: hidden; height: 520px; }
+    .c-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      filter: grayscale(20%);
+      transition: filter 0.6s ease, transform 0.7s ease;
     }
-    .project-card:hover .project-img-wrap img {
-      filter: grayscale(0%); transform: scale(1.03);
+    .carousel-slide:hover .c-img img {
+      filter: grayscale(0%); transform: scale(1.04);
     }
-    .project-body {
-      padding: 28px 0 0;
+    .carousel-viewport {
       border-top: 2px solid var(--charcoal);
     }
-    .project-tag {
+    .c-body {
+      padding: 56px 60px 48px 64px;
+      display: flex; flex-direction: column; justify-content: center;
+      background: var(--white);
+    }
+    .c-tag {
       font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--navy); margin-bottom: 12px;
+      color: var(--navy); margin-bottom: 22px;
     }
-    .project-title {
-      font-family: var(--serif); font-size: 22px; font-weight: 400;
-      line-height: 1.3; color: var(--charcoal); margin-bottom: 14px;
+    .c-title {
+      font-family: var(--serif); font-size: 28px; font-weight: 400;
+      line-height: 1.3; color: var(--charcoal); margin-bottom: 22px;
     }
-    .project-desc { font-size: 13.5px; color: var(--gray); line-height: 1.75; }
+    .c-desc {
+      font-size: 14px; color: var(--gray); line-height: 1.85; flex: 1;
+    }
+    .carousel-controls {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 0 0; border-top: 1px solid var(--light-gray); margin-top: 0;
+    }
+    .c-counter {
+      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--gray); min-width: 48px;
+    }
+    .c-dots { display: flex; gap: 8px; align-items: center; }
+    .c-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--light-gray);
+      border: none; cursor: pointer; padding: 0;
+      transition: background 0.35s, width 0.35s, border-radius 0.35s;
+    }
+    .c-dot.active { background: var(--navy); width: 26px; border-radius: 4px; }
+    .c-arrows { display: flex; gap: 8px; }
+    .c-arrow {
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      background: none; border: 1px solid #D0CCC8;
+      cursor: pointer; color: var(--charcoal);
+      transition: background 0.3s, border-color 0.3s, color 0.3s;
+    }
+    .c-arrow:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
 
     /* ─── PRINCÍPIOS ─────────────────────────────────────────── */
     .principles-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 48px 72px;
+      gap: 24px;
     }
     .principle {
-      border-top: 2px solid var(--light-gray); padding-top: 28px;
-      padding-bottom: 28px; padding-left: 24px; padding-right: 24px;
+      padding: 40px 32px 36px;
       background: #ECEAE6;
-      transition: border-color 0.4s ease, background 0.4s ease;
+      transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
       cursor: default;
     }
-    .principle:hover { border-top-color: var(--navy); background: #E0DED9; }
-
-    .principle-num {
-      font-family: var(--serif); font-size: 15px; color: var(--navy);
-      display: block; margin-bottom: 16px; letter-spacing: 0.05em;
+    .principle:hover {
+      background: #E0DED9;
+      transform: translateY(-5px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.08);
     }
+    .principle-icon {
+      width: 48px; height: 48px; margin-bottom: 26px;
+      color: var(--navy);
+    }
+    .principle-icon svg { width: 48px; height: 48px; display: block; }
     .principle-title {
       font-family: var(--serif);
       font-size: 19px; font-weight: 500; font-style: italic;
-      color: var(--charcoal); margin-bottom: 12px; line-height: 1.2;
+      color: var(--charcoal); margin-bottom: 14px; line-height: 1.3;
       transition: color 0.4s ease;
     }
     .principle:hover .principle-title { color: var(--navy); }
-
     .principle-text {
-      font-size: 14px; color: var(--gray); line-height: 1.8;
-      transition: font-size 0.4s ease, color 0.4s ease;
-    }
-    .principle:hover .principle-text {
-      font-size: 15px; color: #444444;
+      font-size: 14px; color: var(--gray); line-height: 1.85;
     }
 
     /* ─── LIDERANÇA (layout V2) ──────────────────────────────── */
@@ -493,47 +528,73 @@
   <div class="quote-band">
     <span class="quote-mark fade-in">"</span>
     <p class="quote-text fade-in delay-1">
-      Viabilizar empreendimentos é mais do que erguer estruturas — é converter o potencial da terra em sistemas de valor que geram riqueza com ética e garantem a perenidade do amanhã.
+      Viabilizar empreendimentos é mais do que erguer estruturas é converter o potencial da terra em sistemas de valor que geram riqueza com ética e garantem a perenidade do amanhã.
     </p>
-    <p class="quote-attr fade-in delay-2">Yasko Yamashita — Fundadora e Líder Estratégica</p>
+    <p class="quote-attr fade-in delay-2">Yaeko Yamashita — Fundadora e Líder Estratégica</p>
   </div>
 
   <!-- EMPREENDIMENTOS -->
   <section class="section" id="empreendimentos">
     <p class="section-label fade-in">Empreendimentos</p>
     <h2 class="section-title fade-in delay-1">Desenvolvidos com Conformidade e Alto Valor Agregado</h2>
-    <div class="projects-grid">
-      <div class="project-card fade-in delay-1">
-        <div class="project-img-wrap">
-          <img src="./Imagens/agro.png" alt="Agronegócio">
+
+    <div class="carousel-outer fade-in delay-2">
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carouselTrack">
+
+          <div class="carousel-slide">
+            <div class="c-img">
+              <img src="./Imagens/agro.png" alt="Agronegócio">
+            </div>
+            <div class="c-body">
+              <p class="c-tag">Agronegócio</p>
+              <h3 class="c-title">Unidade de Beneficiamento e Armazenamento de Grãos</h3>
+              <p class="c-desc">Sistemas inteligentes de armazenamento que aplicam inovação e governança para reduzir perdas e garantir a perenidade do abastecimento com máxima rentabilidade.</p>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="c-img">
+              <img src="./Imagens/aeroporto.png" alt="Hotelaria e Eventos">
+            </div>
+            <div class="c-body">
+              <p class="c-tag">Hotelaria &amp; Eventos</p>
+              <h3 class="c-title">Hotéis Conceito MICE</h3>
+              <p class="c-desc">Empreendimentos de alto valor agregado que integram vantagem competitiva e infraestrutura de ponta, gerando oportunidades territoriais e conexões de negócios.</p>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="c-img">
+              <img src="./Imagens/industria.png" alt="Energia Renovável">
+            </div>
+            <div class="c-body">
+              <p class="c-tag">Energia</p>
+              <h3 class="c-title">Unidade de Produção de Combustíveis Renováveis</h3>
+              <p class="c-desc">Soluções disruptivas em energia que materializam a sustentabilidade, transformando matrizes energéticas em sistemas de negócios lucrativos e perenes.</p>
+            </div>
+          </div>
+
+        </div><!-- /carousel-track -->
+      </div><!-- /carousel-viewport -->
+
+      <div class="carousel-controls">
+        <span class="c-counter" id="cCounter">01 / 03</span>
+        <div class="c-dots" id="cDots">
+          <button class="c-dot active" data-idx="0" aria-label="Slide 1"></button>
+          <button class="c-dot" data-idx="1" aria-label="Slide 2"></button>
+          <button class="c-dot" data-idx="2" aria-label="Slide 3"></button>
         </div>
-        <div class="project-body">
-          <p class="project-tag">Agronegócio</p>
-          <h3 class="project-title">Unidade de Beneficiamento e Armazenamento de Grãos</h3>
-          <p class="project-desc">Sistemas inteligentes de armazenamento que aplicam inovação e governança para reduzir perdas e garantir a perenidade do abastecimento com máxima rentabilidade.</p>
+        <div class="c-arrows">
+          <button class="c-arrow" id="cPrev" aria-label="Anterior">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="11,3 5,9 11,15"/></svg>
+          </button>
+          <button class="c-arrow" id="cNext" aria-label="Próximo">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="7,3 13,9 7,15"/></svg>
+          </button>
         </div>
-      </div>
-      <div class="project-card fade-in delay-2">
-        <div class="project-img-wrap">
-          <img src="./Imagens/aeroporto.png" alt="Hotelaria e Eventos">
-        </div>
-        <div class="project-body">
-          <p class="project-tag">Hotelaria &amp; Eventos</p>
-          <h3 class="project-title">Hotéis Conceito MICE</h3>
-          <p class="project-desc">Empreendimentos de alto valor agregado que integram vantagem competitiva e infraestrutura de ponta, gerando oportunidades territoriais e conexões de negócios.</p>
-        </div>
-      </div>
-      <div class="project-card fade-in delay-3">
-        <div class="project-img-wrap">
-          <img src="./Imagens/industria.png" alt="Energia Renovável">
-        </div>
-        <div class="project-body">
-          <p class="project-tag">Energia</p>
-          <h3 class="project-title">Unidade de Produção de Combustíveis Renováveis</h3>
-          <p class="project-desc">Soluções disruptivas em energia que materializam a sustentabilidade, transformando matrizes energéticas em sistemas de negócios lucrativos e perenes.</p>
-        </div>
-      </div>
-    </div>
+      </div><!-- /carousel-controls -->
+    </div><!-- /carousel-outer -->
   </section>
 
   <!-- PRINCÍPIOS -->
@@ -541,36 +602,100 @@
     <p class="section-label fade-in">Princípios</p>
     <h2 class="section-title fade-in delay-1">Os Pilares que Sustentam Nossa Atuação</h2>
     <div class="principles-grid">
+
       <div class="principle fade-in delay-1">
-        <span class="principle-num">01</span>
+        <div class="principle-icon">
+          <!-- Globe: Integração Territorial -->
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="24" cy="24" r="17"/>
+            <ellipse cx="24" cy="24" rx="9" ry="17"/>
+            <line x1="7" y1="24" x2="41" y2="24"/>
+            <path d="M10 15 C17 19 31 19 38 15"/>
+            <path d="M10 33 C17 29 31 29 38 33"/>
+          </svg>
+        </div>
         <h4 class="principle-title">Integração Territorial</h4>
         <p class="principle-text">Planejamento sustentável de regiões para maximizar o desenvolvimento integrado, respeitando dinâmicas locais e ambientais.</p>
       </div>
+
       <div class="principle fade-in delay-2">
-        <span class="principle-num">02</span>
+        <div class="principle-icon">
+          <!-- Compass: Orientação a Oportunidades -->
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="24" cy="24" r="17"/>
+            <polygon points="24,11 27.5,24 24,21 20.5,24" fill="currentColor" stroke="none"/>
+            <polygon points="24,37 20.5,24 24,27 27.5,24" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="24" cy="24" r="2" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
         <h4 class="principle-title">Orientação a Oportunidades</h4>
         <p class="principle-text">Identificação de oportunidades econômicas e sociais com impacto positivo, alinhadas a agendas como os ODS da ONU.</p>
       </div>
+
       <div class="principle fade-in delay-3">
-        <span class="principle-num">03</span>
+        <div class="principle-icon">
+          <!-- Leaf: Responsabilidade Socioambiental -->
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 42 C24 42 8 32 8 19 C8 10 16 7 24 7 C32 7 40 10 40 19 C40 32 24 42 24 42Z"/>
+            <line x1="24" y1="42" x2="24" y2="19"/>
+            <path d="M24 28 C19 24 13 21 11 13"/>
+          </svg>
+        </div>
         <h4 class="principle-title">Responsabilidade Socioambiental</h4>
         <p class="principle-text">Ações com impacto positivo no meio ambiente e na sociedade, promovendo bem-estar e proteção para as gerações futuras.</p>
       </div>
+
       <div class="principle fade-in delay-4">
-        <span class="principle-num">04</span>
+        <div class="principle-icon">
+          <!-- Lightbulb: Inovação e Inteligência Tecnológica -->
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 34 C19 38 29 38 29 34"/>
+            <line x1="19" y1="36" x2="29" y2="36"/>
+            <path d="M19 34 C15 30 13 22 17 16 C19 12 21 9 24 9 C27 9 29 12 31 16 C35 22 33 30 29 34"/>
+            <line x1="24" y1="4" x2="24" y2="7"/>
+            <line x1="38" y1="9" x2="35.8" y2="11.2"/>
+            <line x1="42" y1="22" x2="39" y2="22"/>
+            <line x1="10" y1="9" x2="12.2" y2="11.2"/>
+            <line x1="6" y1="22" x2="9" y2="22"/>
+          </svg>
+        </div>
         <h4 class="principle-title">Inovação e Inteligência Tecnológica</h4>
         <p class="principle-text">Aplicação de metodologias disruptivas e tecnologias de ponta para soluções eficientes e transformadoras.</p>
       </div>
+
       <div class="principle fade-in delay-5">
-        <span class="principle-num">05</span>
+        <div class="principle-icon">
+          <!-- Network nodes: Redes de Colaboração -->
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="24" cy="12" r="5"/>
+            <circle cx="10" cy="36" r="5"/>
+            <circle cx="38" cy="36" r="5"/>
+            <line x1="20.5" y1="16.5" x2="13.5" y2="31.5"/>
+            <line x1="27.5" y1="16.5" x2="34.5" y2="31.5"/>
+            <line x1="15" y1="36" x2="33" y2="36"/>
+          </svg>
+        </div>
         <h4 class="principle-title">Redes de Colaboração</h4>
         <p class="principle-text">Parcerias estratégicas com instituições públicas e privadas para coordenação e fortalecimento institucional.</p>
       </div>
+
       <div class="principle fade-in delay-6">
-        <span class="principle-num">06</span>
+        <div class="principle-icon">
+          <!-- Target: Foco em Resultados Sustentáveis -->
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="24" cy="24" r="17"/>
+            <circle cx="24" cy="24" r="10"/>
+            <circle cx="24" cy="24" r="4"/>
+            <line x1="24" y1="3" x2="24" y2="7"/>
+            <line x1="24" y1="41" x2="24" y2="45"/>
+            <line x1="3" y1="24" x2="7" y2="24"/>
+            <line x1="41" y1="24" x2="45" y2="24"/>
+          </svg>
+        </div>
         <h4 class="principle-title">Foco em Resultados Sustentáveis</h4>
         <p class="principle-text">Entrega de resultados duradouros, equilibrando metas econômicas, sociais e ambientais no longo prazo.</p>
       </div>
+
     </div>
   </section>
 
@@ -587,12 +712,12 @@
       </div>
       <div class="fade-in delay-2">
         <div class="leader-creds">
-          <span class="cred">Engenharia Civil</span>
-          <span class="cred">Mestrado UnB</span>
-          <span class="cred">Doutorado UnB</span>
-          <span class="cred">Desenvolvimento Territorial</span>
+          <span class="cred">Graduação — UEL, Brasil · 1980</span>
+          <span class="cred">Mestrado — Tottori University, Japão · 1984</span>
+          <span class="cred">Doutorado — Univ. of Wales Cardiff, Grã-Bretanha · 1993</span>
+          <span class="cred">Pós-Doutorado — Nagoya Inst. of Technology, Japão · 1999</span>
         </div>
-        <h2 class="leader-name">Yasko<br>Yamashita</h2>
+        <h2 class="leader-name">Yaeko<br>Yamashita</h2>
         <span class="leader-role">Fundadora &amp; Líder Estratégica</span>
         <div class="leader-divider"></div>
         <p class="leader-bio">
@@ -714,6 +839,41 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── Empreendimentos carousel ──────────────────────────────
+    (function () {
+      var track   = document.getElementById('carouselTrack');
+      var dots    = document.querySelectorAll('.c-dot');
+      var counter = document.getElementById('cCounter');
+      var total   = 3;
+      var idx     = 0;
+      var timer;
+
+      function goTo(n) {
+        idx = (n + total) % total;
+        track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+        dots.forEach(function (d, i) { d.classList.toggle('active', i === idx); });
+        counter.textContent = ('0' + (idx + 1)).slice(-2) + ' / 0' + total;
+      }
+
+      function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(function () { goTo(idx + 1); }, 5500);
+      }
+
+      document.getElementById('cPrev').addEventListener('click', function () { goTo(idx - 1); resetTimer(); });
+      document.getElementById('cNext').addEventListener('click', function () { goTo(idx + 1); resetTimer(); });
+      dots.forEach(function (d) {
+        d.addEventListener('click', function () { goTo(+this.dataset.idx); resetTimer(); });
+      });
+
+      // Pause on hover
+      var outer = document.querySelector('.carousel-outer');
+      outer.addEventListener('mouseenter', function () { clearInterval(timer); });
+      outer.addEventListener('mouseleave', function () { resetTimer(); });
+
+      resetTimer();
+    }());
   </script>
 </body>
 </html>
