@@ -297,25 +297,6 @@
     }
     .c-arrow:hover { background: var(--green); border-color: var(--navy); color: #fff; }
 
-    /* ─── PLATAFORMA ─────────────────────────────────────────── */
-    .platform-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
-    }
-    .platform-img-wrap { overflow: hidden; }
-    .platform-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      filter: grayscale(10%);
-      transition: transform 0.7s ease, filter 0.6s ease;
-    }
-    .platform-img-wrap:hover img {
-      transform: scale(1.03); filter: grayscale(0%);
-    }
-    .platform-text {
-      font-size: 15px; color: var(--gray); line-height: 1.9;
-    }
-    .platform-text p + p { margin-top: 22px; }
-
     /* ─── PRINCÍPIOS ─────────────────────────────────────────── */
     .principles-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -487,7 +468,6 @@
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#atuacao">Atuação</a></li>
       <li><a href="#empreendimentos">Empreendimentos</a></li>
-      <li><a href="#plataforma">Plataforma</a></li>
       <li><a href="#principios">Princípios</a></li>
       <li><a href="#equipe">Equipe</a></li>
     </ul>
@@ -615,22 +595,6 @@
         </div>
       </div><!-- /carousel-controls -->
     </div><!-- /carousel-outer -->
-  </section>
-
-  <!-- PLATAFORMA -->
-  <section class="section" id="plataforma">
-    <p class="section-label fade-in">Plataforma</p>
-    <h2 class="section-title fade-in delay-1">Plataforma Nectere</h2>
-    <div class="platform-grid">
-      <div class="platform-img-wrap fade-in delay-2">
-        <img src="./Imagens/plataforma-ia.jpg" alt="Plataforma Nectere">
-      </div>
-      <div class="platform-text fade-in delay-3">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-      </div>
-    </div>
   </section>
 
   <!-- PRINCÍPIOS -->
