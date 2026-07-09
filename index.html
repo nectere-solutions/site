@@ -474,6 +474,100 @@
     .fade-in.delay-4 { transition-delay: 0.46s; }
     .fade-in.delay-5 { transition-delay: 0.58s; }
     .fade-in.delay-6 { transition-delay: 0.70s; }
+
+    /* ─── RESPONSIVO ─────────────────────────────────────────── */
+
+    /* Tablets (≤ 1024px) */
+    @media (max-width: 1024px) {
+      nav { padding: 0 32px; height: 96px; }
+      .nav-logo img { height: 60px; }
+      .nav-links { gap: 22px; }
+
+      .hero-inner { padding: 0 32px 64px; }
+      .section { padding: 80px 32px; }
+      .quote-band { padding: 72px 32px; }
+      footer { padding: 64px 32px 40px; }
+
+      .pillars-grid { grid-template-columns: 1fr; }
+      .pillar-card {
+        border-right: none;
+        border-bottom: 1px solid var(--light-gray);
+      }
+      .pillar-card:last-child { border-bottom: none; }
+
+      .principles-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: repeat(3, 1fr); }
+
+      .platform-grid { grid-template-columns: 1fr; gap: 48px; }
+      .leadership-grid { grid-template-columns: 1fr; gap: 48px; }
+      .leader-photo-wrap { max-width: 380px; }
+
+      .c-img { height: 420px; }
+      .c-body { padding: 40px 36px 36px; }
+
+      .footer-top { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    /* Celulares (≤ 768px) */
+    @media (max-width: 768px) {
+      nav {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 14px 20px 10px;
+        row-gap: 8px;
+      }
+      nav.scrolled { height: auto; }
+      .nav-logo { order: 1; }
+      .nav-logo img, nav.scrolled .nav-logo img { height: 42px; }
+      .nav-cta { order: 2; margin-left: auto; padding: 8px 18px; }
+      .nav-links {
+        order: 3;
+        width: 100%;
+        gap: 18px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links a { white-space: nowrap; }
+
+      .hero { min-height: 560px; }
+      .hero-inner { padding: 0 20px 48px; }
+      .hero-headline { font-size: clamp(34px, 9vw, 48px); }
+      .hero-sub { font-size: 14px; margin-bottom: 36px; }
+      .btn-row { flex-wrap: wrap; gap: 20px; }
+
+      .section { padding: 64px 20px; }
+      .section-title { margin-bottom: 48px; }
+      .section-label { font-size: 14px; }
+      .quote-band { padding: 60px 20px; }
+
+      .pillar-card { padding: 36px 24px; }
+      .pillar-text, .principle-text { font-size: 16px; }
+      .pillar-heading, .principle-title { font-size: 24px; }
+
+      .carousel-slide { grid-template-columns: 1fr; }
+      .c-img { height: 240px; }
+      .c-body { padding: 32px 24px 28px; }
+      .c-title { font-size: 22px; }
+
+      .principles-grid { grid-template-columns: 1fr; gap: 16px; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+      .mv-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .leader-name { font-size: 34px; }
+
+      footer { padding: 56px 20px 32px; }
+      .footer-cols { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 8px; align-items: flex-start; }
+    }
+
+    /* Telas muito pequenas (≤ 400px) */
+    @media (max-width: 400px) {
+      .team-grid { grid-template-columns: 1fr; }
+      .nav-cta { padding: 8px 12px; font-size: 10px; }
+    }
   </style>
 </head>
 <body>
